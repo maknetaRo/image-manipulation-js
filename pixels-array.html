@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    const url = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js"
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = url;
+    document.head.appendChild(script);
+    let img;
+    function preload() {
+      img = loadImage('https://ccc.eu/media/cache/gallery/rc/ufaikwj0/images/23/2377580/CCC_5904248671310_01_LR.jpg')
+    }
+    function setup() {
+      img.resize(500, 0)
+      createCanvas(img.width, img.height)
+      noLoop();
+    }
+    function draw() {
+      background(51);
+      loadPixels();
+      for (let y = 0; y< height; y++) {
+        for (let x = 0; x < width; x++) {
+          let index = (x + y * width) * 4;
+          pixels[index] = x
+          pixels[index+1] = random(255)
+          pixels[index+2] = y
+          pixels[index+3] = 150
+        }
+        updatePixels();
+      }
+
+    }
+
+  </script>
+  
+</body>
+</html>

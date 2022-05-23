@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="afterCrop">
+    <img src="" alt="">
+  </div>
+
+  <script>
+     
+    function load() {
+      const jimp_script = document.createElement('script');
+      jimp_script.setAttribute('src', 'https://unpkg.com/jimp@0.14.0/browser/lib/jimp.js');
+      jimp_script.setAttribute('type', 'text/javascript')
+      document.head.appendChild(jimp_script)
+    }
+    window.addEventListener('load', function () {
+      load;
+      cropImage();
+
+    })
+    const imageUrl = "https://ccc.eu/media/cache/gallery/rc/ufaikwj0/images/23/2377580/CCC_5904248671310_01_LR.jpg"
+    const afterCrop = document.querySelector('.afterCrop');
+    
+    function cropImage() {
+      Jimp.read({
+        url: imageUrl,
+      })
+      .then((image) => {
+        console.log(image)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    }
+      
+   
+
+
+  </script>
+  
+</body>
+</html>

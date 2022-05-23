@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /*
+    .p5Canvas {
+      width: 300px !important;
+      height: auto !important;
+    } */
+  </style>
+</head>
+<body>
+  <h2>crop image to a square</h2>
+  <script>
+    const url = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js"
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = url;
+    document.head.appendChild(script);
+    let img;
+    function preload() {
+      img = loadImage('https://ccc.eu/media/cache/gallery/rc/ufaikwj0/images/23/2377580/CCC_5904248671310_01_LR.jpg')
+    }
+    function setup() {
+      img.resize(600, 0)
+      createCanvas(img.width, img.height)
+      noLoop();
+    }
+
+    function draw() {
+      let plainBackground = img.get(0, img.height - img.width, img.width, img.height)
+      image(plainBackground, 0, 0)
+    }
+
+  </script>
+</body>
+</html>
